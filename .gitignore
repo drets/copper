@@ -1,1 +1,38 @@
-.stack-work/*
+# Haskell
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+*.prof
+*.aux
+*.hp
+.virtualenv
+.hsenv
+.hpc
+.stack-work/
+.cabal-sandbox/
+cabal.sandbox.config
+cabal.config
+TAGS
+.DS_Store
+*~
+*.swp
+*.swo
+*#
+state/
+config.json
+
+# IDE/support
+.idea/
+.ideaHaskellLib/
+guide.iml
+.vscode/
+tags
+
+# JavaScript
+guidejs/node_modules/
+static/js/

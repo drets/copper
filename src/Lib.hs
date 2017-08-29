@@ -1,8 +1,5 @@
 {-# LANGUAGE TypeOperators #-}
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE DataKinds #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE TypeInType #-}
 module Lib () where
@@ -22,11 +19,10 @@ instance OrdK Nat where
 instance OrdK Symbol where
   type IsLOE a b = CmpSymbol a b ~ LT
 
-class OrdK k => Asc (a :: [k]) where
-
-instance (OrdK k) => Asc ('[] :: [k]) where
-instance (OrdK k) => Asc ('[n] :: [k]) where
-instance (IsLOE x z, Asc (z ': m)) => Asc (x ': z ': m) where
+type family Asc (a :: [k]) :: Constraint where
+  Asc '[]     = ()
+  Asc '[n]    = ()
+  Asc (x:z:m) = (IsLOE x z, Asc (z:m))
 
 test :: Asc xs => Proxy xs -> ()
 test _ = ()
