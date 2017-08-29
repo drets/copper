@@ -1,0 +1,26 @@
+
+./Setup.hs,15
+main main1,2
+
+./app/Main.hs,52
+module Main Main0,1
+main main4,5
+main main5,6
+
+./src/Lib.hs,246
+module Lib Lib7,8
+class OrdK OrdK15,16
+class OrdK OrdK15,16
+  type IsLOE IsLOE16,17
+instance instance18,19
+class OrdK k => Asc Asc24,25
+class OrdK k => Asc Asc24,25
+test test30,31
+test test31,32
+a a33,34
+b b34,35
+c c35,36
+
+./test/Spec.hs,30
+main main0,1
+main main1,2
