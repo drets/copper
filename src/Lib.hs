@@ -1,3 +1,7 @@
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -19,12 +23,13 @@ instance OrdK Nat where
 instance OrdK Symbol where
   type IsLOE a b = CmpSymbol a b ~ LT
 
-type family Asc (a :: [k]) :: Constraint where
-  Asc '[]     = ()
-  Asc '[n]    = ()
-  Asc (x:z:m) = (IsLOE x z, Asc (z:m))
+class Asc (list :: [k]) bool | list -> bool
 
-test :: Asc xs => Proxy xs -> ()
+instance Asc '[] True
+instance Asc '[n] True
+instance (IsLOE x z, Asc (z ': m) True) => Asc (x ': z ': m) True
+
+test :: Asc xs True => Proxy xs -> ()
 test _ = ()
 
 a = test (Proxy :: Proxy '[1])
