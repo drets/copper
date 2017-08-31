@@ -6,7 +6,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE TypeInType #-}
-module Lib () where
+module AscendingList () where
 
 import Data.Proxy
 import GHC.TypeLits

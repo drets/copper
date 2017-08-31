@@ -6,21 +6,21 @@
 {-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE OverlappingInstances #-}
-module Lists where
+module List where
 
 import Data.Proxy
 import Prelude hiding (reverse)
 
 class Append (l1 :: [k]) (l2 :: [k]) l | l1 l2 -> l where
-  concatList :: Proxy l1 -> Proxy l2 -> Proxy l
+  append :: Proxy l1 -> Proxy l2 -> Proxy l
 
 instance Append  '[] l l where
-  concatList _ _ = Proxy
+  append _ _ = Proxy
 
 instance (Append xs ys zs) => Append (x ': xs) ys (x ': zs) where
- concatList _ _ = Proxy
+ append _ _ = Proxy
 
-d = (concatList (Proxy :: Proxy '[1,2,3]) (Proxy :: Proxy '[4,5,6])) :: Proxy '[1,2,3,4,5,6]
+d = (append (Proxy :: Proxy '[1,2,3]) (Proxy :: Proxy '[4,5,6])) :: Proxy '[1,2,3,4,5,6]
 
 class Reverse (from :: [k]) (to :: [k]) | from -> to where
   reverse :: Proxy from -> Proxy to
