@@ -1,26 +1,0 @@
-
-./Setup.hs,15
-main main1,2
-
-./app/Main.hs,52
-module Main Main0,1
-main main4,5
-main main5,6
-
-./src/Lib.hs,237
-module Lib Lib4,5
-class OrdK OrdK12,13
-class OrdK OrdK12,13
-  type IsLOE IsLOE13,14
-instance instance15,16
-type family family21,22
-type family Asc Asc21,22
-test test26,27
-test test27,28
-a a29,30
-b b30,31
-c c31,32
-
-./test/Spec.hs,30
-main main0,1
-main main1,2
