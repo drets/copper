@@ -12,9 +12,7 @@ module Hanoi where
 
 import Prelude hiding (concat)
 
-import Data.Kind (Type)
 import GHC.TypeLits
-import GHC.Exts
 import Data.Proxy
 
 type family Append a b where
