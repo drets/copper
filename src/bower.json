@@ -1,0 +1,20 @@
+{
+  "name": "src",
+  "homepage": "https://github.com/drets/copper",
+  "authors": [
+    "Dmitry Rets <dmitryrets@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-typelevel-prelude": "^2.4.0"
+  }
+}

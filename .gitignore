@@ -34,6 +34,9 @@ guide.iml
 tags
 
 # JavaScript
-guidejs/node_modules/
+*/node_modules/
+*/bower_components/
+*/package-lock.json
 static/js/
 TAGS
+src/output

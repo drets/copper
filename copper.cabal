@@ -17,7 +17,9 @@ library
   hs-source-dirs:      src
   exposed-modules:     Lib
   build-depends:       base >= 4.7 && < 5,
-                       containers >= 0.5.7.1
+                       containers >= 0.5.7.1,
+                       reflection >= 2.1.2,
+                       singletons >= 2.2
   default-language:    Haskell2010
 
 executable copper-exe
