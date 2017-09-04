@@ -19,3 +19,4 @@ test :: forall xs ys. Sort xs ys => SListProxy xs -> SListProxy ys
 test _ = SListProxy
 
 ascendingList = test (SListProxy :: SListProxy (SCons "a" (SCons "b" (SCons "c" SNil))))
+-- compilationError = test (SListProxy :: SListProxy (SCons "b" (SCons "a" (SCons "c" SNil))))
