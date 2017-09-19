@@ -40,3 +40,4 @@ tags
 static/js/
 TAGS
 src/output
+src/.psci_modules/
