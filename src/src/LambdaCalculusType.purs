@@ -14,13 +14,13 @@ data LambdaProxy (l :: Expr) = LambdaProxy
 class Calc (i :: Expr) (o :: Expr) | i -> o
 
 instance var :: Calc (Var s) (Var s)
-instance abs :: Calc m m' => Calc (Abs s m) (Abs s m')
-instance aappRepl :: ReplaceAll x v2 t12 r => Calc (App (Abs x (Var t12)) (Var v2)) (Var r)
-instance bappRight ::
+else instance abs :: Calc m m' => Calc (Abs s m) (Abs s m')
+else instance appRepl :: ReplaceAll x v2 t12 r => Calc (App (Abs x (Var t12)) (Var v2)) (Var r)
+else instance appRight ::
   ( Calc t2 t2'
   , Calc (App (Abs x (Var unused)) t2') m'
   ) => Calc (App (Abs x (Var unused)) t2) m'
-instance cappLeft ::
+else instance appLeft ::
   ( Calc t1 t1'
   , Calc (App t1' t2) m'
   ) => Calc (App t1 t2) m'
@@ -34,13 +34,11 @@ instance appendConst ::
   (Append xs ys zs) => Append (SCons x xs) ys (SCons x zs)
 
 instance replaceAllNil :: ReplaceAll x v2 SNil SNil
-
-instance _replaceAllConsS ::
+else instance replaceAllConsS ::
   ( Append ys xs zs
   , ReplaceAll x (SCons y ys) zs res
   ) => ReplaceAll x (SCons y ys) (SCons x xs) (SCons y res)
-
-instance replaceAllConsF ::
+else instance replaceAllConsF ::
   ( ReplaceAll x y xs res
   ) => ReplaceAll x y (SCons w xs) (SCons w res)
 
